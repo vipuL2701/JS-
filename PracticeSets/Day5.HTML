@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color:white;">
+   <ul class="lang">
+      <li>JAVASCRIPT</li>
+   </ul>    
+</body>
+<script>
+    //*************function for create element in body  ************************
+
+    function addLagu(langName){
+     const add = document.createElement('li');
+        add.innerHTML = `${langName}`
+        document.querySelector('.lang').appendChild(add)
+    }
+    addLagu('JAVA')
+    addLagu('PAYTHON')
+
+    //"innerHTML" travels full tree thats why this is no good opimisaton for DOM
+    //todo so we use "appenchind"
+
+    function addOptiLagu(langName){
+        const add = document.createElement('li');
+        add.appendChild(document.createTextNode(langName))
+        document.querySelector('.lang').appendChild(add)
+    }
+    addOptiLagu("THIS IS OPTI LANG (JAVA SCRIPT) ")
+    addOptiLagu('JAVA')
+
+   //*********EDIT THE EXITING TEXT in DOM**********
+   
+   const chng = document.querySelector("li:nth-child(3)")
+   //chng.innerHTML = "I AM CHANGE ELEMENT"; //1st change type
+   const chng2 = document.querySelector("li:first-child")
+   const newli = document.createElement('li') 
+   newli.textContent = "HELLO I AM SECOND CHANGE ELEMENT"
+   chng2.replaceWith(newli) // second change elememt
+
+   //3rd change element type
+   chng.outerHTML = "<li>THIS IS OUTER CHANGE</li>"
+
+   // FOR remove element 
+
+   const lastELm = document.querySelector('li:last-child')
+   lastELm.remove()
+</script>
+</html>
