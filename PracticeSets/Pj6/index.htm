@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        background: #414141;
+        margin: 0;
+    }
+    div{
+        /* width: 50%;
+        margin: auto;
+        padding: 10px; */
+        text-align: center;
+    }
+    button{
+        position: relative;
+        background: rgb(41, 176, 229);
+        height: 50px;
+        width: 30%;
+        border-radius: 10px;
+        background: greenyellow;
+    }
+    hr{
+     border: linen dotted 1px;
+    }
+    #stop:hover{
+        background: red;
+    }
+    #stop1:hover{
+        background: red;
+    }
+    #start:hover{
+        background: green;
+    }
+    #start1:hover{
+        background: green;
+    }
+</style>
+<body>
+    <div>
+        <h1 id="orig">I AM THE ORIGINAL TAG</h1>
+        <h2 id="dubli" >I AM THE DUBLICATE TAG</h2><hr>
+        <button type="button" id="stop">Stop</button><hr>
+        <button type="button" id="start">Start</button><hr>
+        <button type="button" id="start1">Start</button><hr>
+        <button type="button" id="stop1">Stop</button><hr>
+    </div>
+</body>
+<script>
+    const blink = function(chng){
+        document.getElementById('orig').innerHTML = `${chng}`;
+        console.log(`${chng}`);
+    }
+ const settimeReference =  setTimeout(blink, 1000, "i am change"); ///////  settimeout
+
+//////////////////   for stop  ////////////
+document.getElementById('stop').addEventListener('click', function(){
+    clearTimeout(settimeReference);
+})
+
+/////start event ////
+document.getElementById('start').addEventListener('click', function(){
+    setTimeout(settimeReference);
+})
+
+
+///////////////////////   SETINTrEVAL   /////////
+//     const blinks = function(setthis){
+//         document.getElementById('dubli').innerHTML = `${setthis}`
+//         console.log(`${setthis}`);
+//     }
+//    const setintervalReference = setInterval(blinks, 1000, `HELU I M THE BLINKING teXt`);
+   
+//    ///// stop1 work ////////
+//    document.getElementById('stop1').addEventListener('click', function(){
+//         clearInterval(setintervalReference);
+//    })
+
+//    // start button work  //////////
+//    document.getElementById('start1').addEventListener('click', function(){
+//        setInterval(setintervalReference);
+//       // setInterval(blinks, 1000, `HELU I M THE BLINKING 2ndClick teXt`);
+//     })
+
+// // const str =document.querySelector('#start1')
+
+// // str.addEventListener('click', function(){
+// //     setInterval(blinks, 1000, `HELU I M THE BLINKING 2ndClick teXt`);
+// // })
+
+//start stop event with setinterval()
+
+const blinks = function(setthis){
+        document.getElementById('dubli').innerHTML = setthis;
+        console.log(setthis);
+}
+
+let refer;
+//let random = Math.floor(Math.random() * 100) + 1;
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+const startEvent = function(){
+    refer = setInterval(blinks,1000,`I AM the blink text ${getRndInteger(12,35)}`);
+}
+
+const stopEvent = function() {
+    clearInterval(refer);
+}
+document.querySelector('#start1').addEventListener('click', startEvent);
+document.querySelector('#stop1').addEventListener('click', stopEvent);
+</script>
+</html>

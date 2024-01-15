@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div{
+    position: absolute;
+    top: 10%;
+    left: 42%;
+    margin-top: -50px;
+    margin-left: -50px;
+    line-height: 50px;
+}
+ul{
+    color: azure;
+}
+
+</style>
+<body style="background-color: #414141", id="body">
+</body>
+<div>
+    <ul id="context">
+        <li>I AM THE 1st LINE</li>
+        <li>I AM THE 2st LINE</li>
+        <li>I AM THE 3st LINE</li>
+        <li>I AM THE 4st LINE</li>
+        <li id="5">I AM THE 5st LINE</li>
+        <li id="6">I AM THE 6st LINE</li>
+        <li>I AM THE 7st LINE</li>
+        <li>I AM THE 8st LINE</li>
+        <li>I AM THE 9st LINE</li>
+        <li>I AM THE 10st LINE</li>   
+    </ul>
+</div>
+<script>
+//   const del = document.getElementById('5')
+//        del.onclick = function(){
+//         alert("YOU CLICK ON ME, I AM NO. 5th!")
+//     }
+//  // anothe way for click me event
+ 
+//  const del2 = document.getElementById('6')
+//        del2.addEventListener('click' , function(e){
+//        //console.log("YOU CLICK ON ME, I M NO. 6");
+//        alert("YOU CLICK ON ME, I M NO. 6");
+//        }, false)
+// ///////////////////////////////////////////////////////////////////
+
+//  del.addEventListener('click', function(e){
+//    e.preventDefault();
+//     e.stopPropagation();
+//     console.log(`no 5 clicked ${e.target}`)
+//  }, false)
+
+ ///////Remove the context
+
+ document.querySelector('#context').addEventListener('click', function(e){
+    //console.log(e.target);
+    //console.log(e.target.parentNode);
+    console.log(e.target.tagName);
+   
+    if (e.target.tagName === "LI"){
+    console.log(e.target.id);
+      let rem = e.target;
+      rem.remove()
+    }
+ })
+</script>
+</html>
