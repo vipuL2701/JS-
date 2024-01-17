@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API CARD</title>
+</head>
+<style>
+    html{
+        background: #414141;
+    }
+    #card{
+        display: flex;
+        justify-content: center;
+        background: yellowgreen;
+        width: 50vh;
+        height: 50vh;
+        text-align: center;
+        margin: auto;
+        margin-top: 80px;
+        border: 4px solid red;
+        border-radius: 9px;
+}
+#click{
+    font-size: xx-large;
+    padding-top: 30px;
+    text-transform: capitalize;
+}
+</style>
+<body>
+    <div id="card">
+       <span id="click">click here to show the content</span>
+    </div>
+</body>
+<script>
+    const url = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    
+    xhr.open('GET', url)
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+    }
+
+</script>
+</html>
