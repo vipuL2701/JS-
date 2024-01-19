@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+    }
+    #input{
+        width: 70%;
+    }
+    #submit{
+        width: 200px;
+        background: mediumslateblue;
+    }
+    li{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        color: blue;
+        text-transform: capitalize;
+        margin-left: 120px;
+    }
+   .label{
+    margin-left: 120px;
+   }
+   .submit{
+    margin-left: 460px;
+   }
+</style>
+<body style="background-color: aquamarine; color: black;">
+    <h2>TODO APP</h2>
+    <p class="label"><label>Add task :</label>
+       <input type="text" id="input" placeholder="add task here"></p>
+    <p class="submit"><input type="button" id="submit" value="Click me to ADD TASK"/></p>
+    <hr style="border: 2px dotted green;">
+    <ul id="taskResult"></ul>
+    
+</body>
+<script>
+const submit = document.getElementById('submit');
+
+submit.addEventListener('click', function(e){
+ e.preventDefault();
+
+const input = document.getElementById('input');
+
+var inputs = input.value.trim();
+
+    if (inputs !== "") {
+      var newTask = document.createElement('li');
+          newTask.textContent = inputs
+
+    document.getElementById('taskResult').appendChild(newTask);
+    input.value= "";
+    }
+})
+
+
+
+</script>
+</html>
