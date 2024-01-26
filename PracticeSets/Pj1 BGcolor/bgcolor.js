@@ -21,7 +21,7 @@ buttons.forEach(function(button){
                 body.style.backgroundColor = "grey";
                 break;
             case "orange":
-                body.style.backgroundColor = "orange";
+                body.style.backgroundColor = " #ff8800";
                 break;
             default :
                 break;
